@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>codeHack3r</title>
+		<meta name="description" content="">
+		<meta name="author" content="">
+
+		<!--[if lt IE 9]>
+			<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+
+		<!--Basic styles & fonts-->
+		<link href="./assets/css/bootstrap.css" rel="stylesheet">
+		<link href="./assets/css/styles.css" rel="stylesheet">
+		<link href='http://fonts.googleapis.com/css?family=Ropa+Sans|Ubuntu+Condensed|Homenaje' rel='stylesheet' type='text/css'>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+		<!--Basic styles & fonts-->
+
+		<!--codeHack3r javascript & jQuery-->
+		<script src="./assets/js/app.js"></script>
+		<script src="./assets/js/jquery-ui-1.8.16.custom.min.js"></script>
+		<!--<script src="./assets/js/fs/bb.js"></script>
+		<script src="./assets/js/fs/fs.js"></script>-->
+		<script type="text/javascript" src="./assets/js/dfy/swfobject.js"></script>
+		<script type="text/javascript" src="./assets/js/dfy/downloadify.min.js"></script>
+		<!--codeHack3r javascript & jQuery-->
+
+		<!--CodeMirror-->
+		<script src="./assets/js/cm/codemirror.js"></script>
+		<link rel="stylesheet" href="./assets/js/cm/codemirror.css">
+		<link rel="stylesheet" href="./assets/js/cm/night.css">
+		<!--CodeMirror modes-->
+		<script src="./assets/js/cm/mode/css/css.js"></script>
+		<script src="./assets/js/cm/mode/html/htmlmixed.js"></script>
+		<script src="./assets/js/cm/mode/javascript/javascript.js"></script>
+		<script src="./assets/js/cm/mode/markdown/markdown.js"></script>
+		<script src="./assets/js/cm/mode/mysql/mysql.js"></script>
+		<script src="./assets/js/cm/mode/perl/perl.js"></script>
+		<script src="./assets/js/cm/mode/php/php.js"></script>
+		<script src="./assets/js/cm/mode/python/python.js"></script>
+		<script src="./assets/js/cm/mode/ruby/ruby.js"></script>
+		<script src="./assets/js/cm/mode/xml/xml.js"></script>
+		<script src="./assets/js/cm/mode/clike/clike.js"></script>
+		<!--CodeMirror modes-->
+		<!--CodeMirror-->
+
+		<!--Bootstrap JS-->
+		<script src="./assets/js/bs/bsdd.js"></script>
+		<script src="./assets/js/bs/bstt.js"></script>
+		<script src="./assets/js/bs/bsalert.js"></script>
+		<!--Bootstrap JS-->
+
+	</head>
+
+	<body>
+		<div class="appbox">
+
+			<div class="btitle">
+				codehack3r
+			</div>
+			<div class="toolsbox">
+				<div class="btn-group" id="appBtns">
+
+					<a class="btn" href="#" id="newFile" rel="tooltip" data-original-title="Deletes all the content and makes a new file"><i class="icon-file"></i></a>
+					<a class="btn" href="#" id="downloadFile" rel="tooltip" data-original-title="Downloads the actual file"><i class="icon-download"></i></a>
+					<a class="btn" href="#" id="uploadFile" rel="tooltip" data-original-title="Allows you to upload a file to edit"><i class="icon-folder-open"></i></a>
+					<a class="btn" href="#" id="aboutModal" rel="tooltip" data-original-title="Information about codeHack3r" data-toggle="modal"><i class="icon-info-sign"></i></a>
+
+				</div>
+				<div class="btn-group">
+					<span class="btn" href="#">HTML</span>
+					<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+						<span class="caret"></span>
+					</a>
+					<ul class="dropdown-menu">
+						<li><a href="#" class="css">CSS</a></li>
+						<li><a href="#" class="html">HTML</a></li>
+						<li><a href="#" class="js">JavaScript</a></li>
+						<li><a href="#" class="md">Markdown</a></li>
+						<li><a href="#" class="mysql">MySQL</a></li>
+						<li><a href="#" class="perl">Perl</a></li>
+						<li><a href="#" class="python">Python</a></li>
+						<li><a href="#" class="php">PHP</a></li>
+						<li><a href="#" class="ruby">Ruby</a></li>
+						<li><a href="#" class="xml">XML</a></li>
+					</ul>
+				</div>
+				<div class="notice">
+					<span class="label">Start writing</span>
+				</div>
+			</div>
+		</div>
+		<div id="code" class="stretch"></div>
+		<div class="modal hidden fade">
+			<div class="modal-header">
+				<a class="close" data-dismiss="modal">×</a>
+				<h3 id="modalTitle">Modal header</h3>
+			</div>
+			<div class="modal-body">
+				<p id="modalBody">One fine body…</p>
+				<iframe style="display:none" id="uploadIframe" name="uploadIframe" src="about:blank"></iframe>
+				<div class="errorZone hidden"></div>
+			</div>
+			<div class="modal-footer">
+				<a href="#" class="btn btn-primary" data-dismiss="modal">Close</a>
+			</div>
+		</div>
+	</body>
+</html>
