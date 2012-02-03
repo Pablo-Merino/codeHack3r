@@ -4,23 +4,7 @@ $(function() {
 	}
 	
 	localStorage['filename'] = "file.html";
-
-	$("#downloadFile").downloadify({
-		filename: function(){
-			return localStorage['filename'];
-		},
-		data: function(){ 
-			saveCMEditorData();
-			return localStorage[localStorage['filename']];
-		},
-		swf: './assets/js/dfy/downloadify.swf',
-		downloadImage: './assets/js/dfy/trans.png',
-		width: 27,
-		height: 27,
-		transparent: true,
-		append: true
-	});
-
+	
 	var versionNumber = "0.2 beta";
 	var cmEditor = CodeMirror(document.getElementById('code'), {
 		mode:  "text/html",
@@ -122,13 +106,13 @@ $(function() {
 		cmEditor.setValue("");
 		saveCMEditorData();
 	});
-	/*$("#downloadFile").click(function(){
+	$("#downloadFile").click(function(){
 		saveCMEditorData();
 		$(".toolsbox .notice").html("<span class=\"label label-info\">Downloaded :)</span>");
 		var bb = new BlobBuilder;
 		bb.append(localStorage[localStorage['filename']]);
 		saveAs(bb.getBlob("application/octet-stream;charset=utf-8;Content-disposition: attachment; filename="+localStorage['filename']), localStorage['filename']);
-	});*/
+	});
 	$("#appBtns").tooltip({
       selector: "a[rel=tooltip]",
       placement:"left"
@@ -144,7 +128,7 @@ $(function() {
     });
     $("#uploadFile").click(function() {
     	$(".modal-header #modalTitle").html("Upload file");
-		$(".modal-body #modalBody").html('<input type="file" id="files" name="file" /><br/><a href="#" class="btn" id="submitForm">Upload</a>');
+	$(".modal-body #modalBody").html('<input type="file" id="files" name="file" /><br/><a href="#" class="btn" id="submitForm">Upload</a>');
 
     	$('.modal').modal({
   			keyboard: false
