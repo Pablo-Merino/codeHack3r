@@ -95,10 +95,11 @@ $(function() {
 		}
 	});
 	$(window).keypress(function(event) {
+		event.preventDefault();
 		if(cmEditor.getValue() || savedOnce) {
 			if (!(event.which == 115 && event.ctrlKey) && !(event.which == 19)) return true;
     		saveCMEditorData();
-    		event.preventDefault();
+    		
     		return false;
 		}
 	});
