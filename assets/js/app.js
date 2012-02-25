@@ -1,4 +1,6 @@
 $(function() {
+	cmEditor.focus();
+
 	window.onbeforeunload = function() { 
 		return "You may have unsaved changes, do you really want to close?";
 	}
