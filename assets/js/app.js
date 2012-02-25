@@ -21,7 +21,6 @@ $(function() {
 
 	$('.CodeMirror-scroll').height( $(window).height() + "px" );
 
-	$(".CodeMirror textarea").click();
 	$(".dropdown-menu a").click(function(){
 		switch($(this).attr("class")) {
 			case "css":
@@ -104,6 +103,17 @@ $(function() {
     		return false;
 		}
 	});
+
+	$(".kbShow").on('click', function(){
+		$(".appbox").slideUp();
+		$(".appboxM").slideDown();
+		cmEditor.focus();
+	});
+	$(".kbHide").on('click', function(){
+		$(".appbox").slideDown();
+		$(".appboxM").slideUp();
+	});
+
 	$("#newFile").click(function(){
 		cmEditor.setValue("");
 		saveCMEditorData();

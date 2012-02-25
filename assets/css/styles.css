@@ -8,6 +8,19 @@ div.appbox {
 	height:auto;
 	
 }
+
+div.appboxM {
+	position: fixed;
+	top: 0px;
+	right: 0px;
+	z-index: +1000;
+	background-color:#666666;
+	width:auto;
+	height:auto;
+	padding:5px;
+	
+}
+
 div.btitle {
 	font-family: 'Ubuntu Condensed', sans-serif;
 	color:white;
@@ -56,4 +69,7 @@ ul.dropdown-menu {
 	position:absolute;
 	top:0px;
 	left:4px;
+}
+.kbShow {
+	margin-bottom:5px;
 }
