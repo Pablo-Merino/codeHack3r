@@ -21,7 +21,7 @@ $(function() {
 
 	$('.CodeMirror-scroll').height( $(window).height() + "px" );
 
-	$(".CodeMirror textarea").focus();
+	$(".CodeMirror textarea").click();
 	$(".dropdown-menu a").click(function(){
 		switch($(this).attr("class")) {
 			case "css":
