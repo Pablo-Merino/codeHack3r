@@ -16,14 +16,12 @@ $(function() {
 			hlLine = cmEditor.setLineClass(cmEditor.getCursor().line, "activeline");  
 		}
 	});
-	cmEditor.focus();
 
 	var hlLine = cmEditor.setLineClass(0, "activeline");
 
 	$('.CodeMirror-scroll').height( $(window).height() + "px" );
 
-	cmEditor.focus();
-
+	$(".CodeMirror textarea").focus();
 	$(".dropdown-menu a").click(function(){
 		switch($(this).attr("class")) {
 			case "css":
