@@ -118,7 +118,8 @@ $(function() {
       selector: "a[rel=tooltip]",
       placement:"left"
     });
-    $("#aboutModal").click(function() {
+    $("#aboutModal").on('click',function() {
+    	console.log("dafuq");
     	$(".modal-header #modalTitle").html("About codeHack3r ("+versionNumber+")");
     	$(".modal-body #modalBody").html("codeHack3r is an online tool to write code. It uses:<ul><li>Twitter Bootstrap for basic styles</li><li>CodeMirror for code editor</li></ul>It's actually pretty basic, but take for granted that this will be your online IDE of preference!<br/>");
     	$('.modal').modal({
