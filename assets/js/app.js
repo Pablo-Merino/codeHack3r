@@ -6,6 +6,8 @@ $(function() {
 	
 	localStorage['filename'] = "file.html";
 	
+	var history = new StudioHistory();
+
 	var versionNumber = "0.2 beta";
 	var cmEditor = CodeMirror(document.getElementById('code'), {
 		mode:  "text/html",
@@ -90,6 +92,8 @@ $(function() {
 	$('.CodeMirror textarea').keydown(function(event) {
 		if(cmEditor.getValue()) {
 			$(".toolsbox .notice").html("<span class=\"label label-warning\">Unsaved</span>");
+			history.setHistoryItem(cmEditor.getValue());
+
 		} else if(!savedOnce) {
 			$(".toolsbox .notice").html("<span class=\"label\">Start writing</span>");	
 		}
@@ -102,6 +106,20 @@ $(function() {
 
     		return false;
 		}
+	});
+
+	$("#historyBtns #undo").on('click', function() {
+		var undoCode = history.getUndoItem();
+		if(undoCode != false) {
+			cmEditor.setValue(undoCode);
+		}	
+	});
+
+	$("#historyBtns #redo").on('click', function() {
+		var redoCode = history.getRedoItem();
+		if(redoCode != false) {
+			cmEditor.setValue(redoCode);
+		}	
 	});
 
 	$(".kbShow").on('click', function(){
@@ -125,7 +143,7 @@ $(function() {
 		bb.append(localStorage[localStorage['filename']]);
 		saveAs(bb.getBlob("application/octet-stream;charset=utf-8;Content-disposition: attachment; filename="+localStorage['filename']), localStorage['filename']);
 	});
-	$("#appBtns").tooltip({
+	$("#appBtns,#historyBtns").tooltip({
       selector: "a[rel=tooltip]",
       placement:"left"
     });
@@ -141,7 +159,7 @@ $(function() {
     });
     $("#uploadFile").click(function() {
     	$(".modal-header #modalTitle").html("Upload file");
-	$(".modal-body #modalBody").html('<input type="file" id="files" name="file" /><br/><a href="#" class="btn" id="submitForm">Upload</a>');
+		$(".modal-body #modalBody").html('<input type="file" id="files" name="file" /><br/><a href="#" class="btn" id="submitForm">Upload</a>');
 
     	$('.modal').modal({
   			keyboard: false
@@ -154,6 +172,8 @@ $(function() {
 		var filename = localStorage['filename'];
 		localStorage[filename] = cmEditor.getValue()+"\n";
 		savedOnce = true;
+		history.setHistoryItem(cmEditor.getValue());
+
 		$(".toolsbox .notice").html("<span class=\"label label-success\">Saved</span>");
 	}
 	function readUploadedFile() {
