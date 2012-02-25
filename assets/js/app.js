@@ -1,5 +1,4 @@
 $(function() {
-	cmEditor.focus();
 
 	window.onbeforeunload = function() { 
 		return "You may have unsaved changes, do you really want to close?";
@@ -17,6 +16,8 @@ $(function() {
 			hlLine = cmEditor.setLineClass(cmEditor.getCursor().line, "activeline");  
 		}
 	});
+	cmEditor.focus();
+
 	var hlLine = cmEditor.setLineClass(0, "activeline");
 
 	$('.CodeMirror-scroll').height( $(window).height() + "px" );
