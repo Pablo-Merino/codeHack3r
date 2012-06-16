@@ -2,7 +2,7 @@
 
 $payload = json_decode(stripslashes($_POST['payload']));
 
-$password = "FuckY34ah1mp0ss1bl3_++++++++_eflkmfkldmekldkdkdkdk k d ljdslkdsknrek nfoeiw";
+$password = "noes";
 
 if($_GET['pass'] == sha1($password)) {
 	if($payload->ref === 'refs/heads/master') {
